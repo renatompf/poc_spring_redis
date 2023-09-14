@@ -1,0 +1,37 @@
+version: '3.8'
+services:
+  postgres:
+    image: postgres:latest
+    container_name: postgres
+    environment:
+      POSTGRES_DB: redis
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: root
+    volumes:
+      - ./database/:/docker-entrypoint-initdb.d/
+    ports:
+      - "5432:5432"
+
+  redis:
+    image: redis:latest
+    container_name: redis
+    restart: always
+    ports:
+      - '6379:6379'
+
+  app:
+    container_name: app
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: release_image
+    environment:
+      POSTGRES_HOST: postgres
+    depends_on:
+      - postgres
+      - redis
+    ports:
+      - "8080:8085"
+
+networks:
+  my-network:
