@@ -5,9 +5,6 @@ import io.renatofreire.poc_redis.exception.InvalidBodyException;
 import io.renatofreire.poc_redis.model.User;
 import io.renatofreire.poc_redis.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cache.annotation.CacheEvict;
-import org.springframework.cache.annotation.CachePut;
-import org.springframework.cache.annotation.Cacheable;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
