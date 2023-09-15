@@ -16,7 +16,7 @@ In order to test this the procedure was the following:
 
 After starting the whole project and making the endpoint calls that are referred, you can make the following:
 
-1. Go to your redis container (Check the container id by doing `docker ps` and then make <br> `docker exec -it <docker container name> bash`);
+1. Go to your redis container (Check the container id by doing `docker ps` and then make <br> `docker exec -it <docker container id> bash`);
 2. Once inside the container you can start the redis client (run `redis-cli`);
 3. And last you can check all the keys and values you want by making `keys '*'` and <br> `get users::{userid}` and you will see the respective objects and follow the changes when calling the endpoints;
 
